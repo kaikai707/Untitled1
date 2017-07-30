@@ -1,5 +1,8 @@
 class MyColor
 {
+  /*
+    Class to animate the color of each wave
+  */
   float R, G, B, Rspeed, Gspeed, Bspeed;
   
   float minSpeed = 0.6;

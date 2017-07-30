@@ -1,22 +1,25 @@
+/*
+  An interactive digital art installation for my Spring 2017 ARTS 375 class
+*/
 import SimpleOpenNI.*;
+
 SimpleOpenNI kinect;
-//************************************************
+
 PVector rootNoise;
 
-int numWeeds = 150;
+int numWaves = 150;
 float radius = 750;
 int userDist = 70;
 
-int colorMode = 0;
-int numColModes = 5;
+int colorMode = 0;    // make an enumeration
+int numColModes = 5;  // remove this
 
 Boolean noiseOn = true;
 PVector center;
 PVector position;
 PVector user = new PVector(-100, -100);
 
-
-SeaWeed[] weeds;
+Wave[] waves;
 
 ArrayList<PVector> users;
 
@@ -31,22 +34,20 @@ void setup()
   kinect = new SimpleOpenNI(this);
   kinect.enableDepth();
   kinect.enableUser();
-  
 }
 
-void reset(){
-  
+void reset()
+{  
   center = new PVector(width/2, height/2);
   strokeWeight(1);
   
   rootNoise = new PVector(random(100), random(100));
   
-  weeds = new SeaWeed[numWeeds];
-  for(int i = 0; i < numWeeds; i++)
+  waves = new Wave[numWaves];
+  for(int i = 0; i < numWaves; i++)
   {
-    weeds[i] = new SeaWeed(i * TWO_PI/numWeeds, 3 * radius, colorMode);
+    waves[i] = new Wave(i * TWO_PI/numWaves, 3 * radius, colorMode);
   }
-  
 }
 
 void draw()
@@ -74,20 +75,20 @@ void draw()
     kinect.convertRealWorldToProjective(position, position);
     position.x = map(position.x, 0, 640, 0, width);
     position.y = map(position.y, 0, 480, 0, height);
-    position.z = map(position.z, 3000, 0, 50, 90);  // map z value to maximum diatnce from kinect in mm
+    position.z = map(position.z, 3000, 0, 50, 90);  // map z value to maximum distance from kinect in mm
     
     users.add(position);
     
     noStroke();
     fill(255, 0, 0);
     ellipse(position.x, position.y, 10, 10);
-    
   }
   
-  for(int j = 0; j < numWeeds; j++){
-    weeds[j].update();
+  for(int j = 0; j < numWaves; j++){
+    waves[j].update();
   }
   
+  // reset everyday at midnight
   if ( hour() == 0 && minute() == 0 & second() == 0 && shouldReset){
     
     println("Reseting....");
@@ -98,5 +99,4 @@ void draw()
    println("Seting was reset to false....");
    shouldReset = true;
   }
-  
 }
