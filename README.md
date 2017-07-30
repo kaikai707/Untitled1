@@ -4,6 +4,8 @@
 
 <em>Untitled</em> is an interactive digital art installation I created for my Spring 2017 <em>Advanced Projects in Studio Art</em> (ARTS 375) class at Colgate University. The piece makes use of a  Kinect to capture the center of masses of any objects moving in and across the installation space and feeds this data to a Processing sketch projected onto a wall by an overhead projector.
 
+![Alt text](/Images/screenshot.png?raw=true "Screenshot. Dot represents user position")
+
 In its current state, the sketch runs only on Windows. I’m working on creating a Linux version.
 
 ### Inspiration
