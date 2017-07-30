@@ -18,7 +18,7 @@ class Wave
   float cosi, sinu;
   
     
-  Wave(float p_rad, float p_length, int colorMode)
+  Wave(float p_rad, float p_length, ColorMode colorMode)
   {
      numSegments = (int)(p_length / DIST_MAX);
      pos = new PVector[numSegments];

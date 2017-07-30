@@ -11,8 +11,7 @@ int numWaves = 150;
 float radius = 750;
 int userDist = 70;
 
-int colorMode = 0;    // make an enumeration
-int numColModes = 5;  // remove this
+ColorMode colorMode = ColorMode.RANDOM;
 
 Boolean noiseOn = true;
 PVector center;

@@ -14,10 +14,10 @@ class MyColor
   float minB = 0;
   float maxB = 150;
   
-  MyColor(int mode)
+  MyColor(ColorMode mode)
   {
      switch(mode){
-        case 0:
+        case RANDOM:
          minR = 0;
          maxR = 255;
          minG = 0;
@@ -25,7 +25,7 @@ class MyColor
          minB = 0;
          maxB = 255;
          break;
-      case 1:
+      case ONE:
          minR = 150;
          maxR = 255;
          minG = 0;
@@ -33,7 +33,7 @@ class MyColor
          minB = 0;
          maxB = 150;
          break;
-      case 2: 
+      case TWO: 
         minR = 0;
         maxR = 150;
         minG = 150;
@@ -41,7 +41,7 @@ class MyColor
         minB = 0;
         maxB = 255;
         break;
-      case 3:
+      case THREE:
         minR = 0;
         maxR = 255;
         minG = 150;
@@ -49,7 +49,7 @@ class MyColor
         minB = 0;
         maxB = 150;
         break;
-       case 4:
+       case FOUR:
          minR = 200;
          maxR = 255;
          minG = 20;
